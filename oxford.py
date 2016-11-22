@@ -1,6 +1,6 @@
 from nltk.corpus import wordnet as wn
-from ConfigParser import SafeConfigParser 
-import cPickle as pickle
+from configparser import SafeConfigParser 
+import pickle as pickle
 import requests
 
 class OxfordAPIAccess:
@@ -39,7 +39,7 @@ class OxfordAPIAccess:
 		if response.status_code == 200:
 			tempDict = response.json()
 			return self.extractOxfordSamples(tempDict, word)
-		print('Status code: {}'.format(response.status_code))
+		print(('Status code: {}'.format(response.status_code)))
 		return None
 
 	def extractOxfordSamples(self, requestResponse, word):

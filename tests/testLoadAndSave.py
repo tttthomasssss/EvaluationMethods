@@ -75,7 +75,7 @@ class TestRandomSelection(unittest.TestCase):
 				loadedWordData = loadedData[key]
 				self.assertEqual(len(originalWordData), len(loadedWordData))
 				for originalSense, loadedSense in zip(originalWordData, loadedWordData):
-					self.assertEqual(len(loadedSense.keys()), 3)
+					self.assertEqual(len(list(loadedSense.keys())), 3)
 					self.assertEqual(originalSense['def'], loadedSense['def'])
 					self.assertEqual(originalSense['pos'], loadedSense['pos'])
 					self.assertEqual(len(originalSense['examples']), len(loadedSense['examples']))

@@ -1,4 +1,4 @@
-import cPickle as pickle
+import pickle as pickle
 from collections import defaultdict
 from nltk.corpus import semcor
 from nltk.corpus import wordnet as wn 
@@ -144,7 +144,7 @@ class SemcorWordExtraction:
 		'coca5000WordFreq' 
 		"""
 		dictGroupedByWords = defaultdict(list)
-		for key in sentencesToGroup.keys():
+		for key in list(sentencesToGroup.keys()):
 			synset = str(key[0])
 			word = key[1]
 			pos = self.convertPoS(key[2])

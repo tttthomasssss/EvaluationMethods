@@ -82,7 +82,7 @@ class TestRandomSelection(unittest.TestCase):
 		lemmatizedDict = {'owed':'owe', 'dogs':'dog', 'chased':'chase', 'churches':'church', 
 		'running':'run', 'drinking':'drink', 'was':'be', 'were':'be'}
 		lemmatizedExamples = ds.tokenizeAndLemmatizeExamples(testDict, True)
-		self.assertTrue('word1' in lemmatizedExamples.keys())
+		self.assertTrue('word1' in list(lemmatizedExamples.keys()))
 		for lemmatizedSense, originalSense in zip(lemmatizedExamples['word1'], testDict['word1']):
 			self.assertEqual(lemmatizedSense['pos'], originalSense['pos'])
 			self.assertEqual(lemmatizedSense['def'], originalSense['def'])

@@ -43,7 +43,7 @@ def validateBoolean(parser):
 			parser.getboolean('evaluation_params', key)
 		except ValueError as err:
 			allValid = False
-			print('The value for key {} is not a valid boolean.'.format(key))
+			print(('The value for key {} is not a valid boolean.'.format(key)))
 	return allValid
 
 def validateInt(parser):
@@ -65,7 +65,7 @@ def validateInt(parser):
 			parser.getint('evaluation_params', key)
 		except ValueError as err:
 			allValid = False
-			print('The value for key {} is not a valid integer.'.format(key))
+			print(('The value for key {} is not a valid integer.'.format(key)))
 	return allValid	
 
 def validateBaseLineMethod(parser):
@@ -92,21 +92,21 @@ def validateBaseLineMethod(parser):
 	baseLineMethod = parser.get('evaluation_params', 'baseLineMethod')
 	if grouped:
 		if baseLineMethod not in validBaseLines:
-			print(baseLineMethod + ' is not a recognised grouped prediction ' + 
-			'method. Valid methods are \'random\'  \'wordCrossover\' \'word2vec\'.')
+			print((baseLineMethod + ' is not a recognised grouped prediction ' + 
+			'method. Valid methods are \'random\'  \'wordCrossover\' \'word2vec\'.'))
 			return False
 
 		groupedAccuracyMeasure = parser.get('evaluation_params', 
 			'groupedAccuracyMeasure')
 		if 	groupedAccuracyMeasure not in accuracyMeasures:
-			print(groupedAccuracyMeasure + ' is not a recognised accuracy measure '
-			+ 'for grouped data. Valid measures are \'total\' and \'pairs\'.')
+			print((groupedAccuracyMeasure + ' is not a recognised accuracy measure '
+			+ 'for grouped data. Valid measures are \'total\' and \'pairs\'.'))
 			return False	
 
 	if not grouped and baseLineMethod not in validBaseLines:
-		print(baseLineMethod + ' is not a recognised select one sentence from '
+		print((baseLineMethod + ' is not a recognised select one sentence from '
 			+ 'many prediction method. Valid methods are \'random\' ' + 
-			' \'wordCrossover\' \'word2vecCosine\' \'word2vecWordSim\'.')
+			' \'wordCrossover\' \'word2vecCosine\' \'word2vecWordSim\'.'))
 		return False
 	return True
 
@@ -125,8 +125,8 @@ def validatePos(parser):
 	validPos = ['Noun', 'Verb', 'Adverb', 'Adjective']
 	pos = parser.get('evaluation_params', 'pos')
 	if pos not in validPos:
-		print(pos + ' is not recognised as a part of speach. Valid options are '
-		+ '\'Noun\' \'Verb\' \'Adverb\' \'Adjective\'.')
+		print((pos + ' is not recognised as a part of speach. Valid options are '
+		+ '\'Noun\' \'Verb\' \'Adverb\' \'Adjective\'.'))
 		return False
 	return True
 
@@ -150,8 +150,8 @@ def validateSenseAndExampNum(parser):
 	if grouped:
 		if not (senseNum == 3 and exampNum == 3) and \
 			not (senseNum == 4 and exampNum == 4):
-			print('For grouped evaluation problem sense number and example ' + 
-				'number must both be 3 or both be 4.')
+			print(('For grouped evaluation problem sense number and example ' + 
+				'number must both be 3 or both be 4.'))
 			return False
 	else:
 		if exampNum < 2:

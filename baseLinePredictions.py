@@ -25,7 +25,7 @@ class OFMPredictions:
 		string. 
 		"""
 		results = {}
-		for key in dataToSelectFrom.keys():
+		for key in list(dataToSelectFrom.keys()):
 			example = dataToSelectFrom[key]['example']
 			optionsToSelectFrom = dataToSelectFrom[key]['options']
 			solution = optionsToSelectFrom[randint(0, len(optionsToSelectFrom)-1)]
@@ -52,7 +52,7 @@ class OFMPredictions:
 		string. 
 		"""
 		results = {}
-		for key in dataToSelectFrom.keys():
+		for key in list(dataToSelectFrom.keys()):
 			example = dataToSelectFrom[key]['example']
 			optionsToSelectFrom = dataToSelectFrom[key]['options']
 			optionsToSelectFrom = deepcopy(optionsToSelectFrom)
@@ -86,7 +86,7 @@ class OFMPredictions:
 		string. 
 		"""
 		results = {}
-		for key in dataToSelectFrom.keys():
+		for key in list(dataToSelectFrom.keys()):
 			example = dataToSelectFrom[key]['example']
 			optionsToSelectFrom = dataToSelectFrom[key]['options']
 			optionsToSelectFrom = deepcopy(optionsToSelectFrom)
@@ -118,7 +118,7 @@ class OFMPredictions:
 		string. 
 		"""
 		results = {}
-		for key in dataToSelectFrom.keys():
+		for key in list(dataToSelectFrom.keys()):
 			example = dataToSelectFrom[key]['example']
 			optionsToSelectFrom = dataToSelectFrom[key]['options']
 			optionsToSelectFrom = deepcopy(optionsToSelectFrom)
@@ -145,7 +145,7 @@ class OFMPredictions:
 		The accuracy of the prediction results as a float.
 		"""
 		correct = 0
-		for key in dataset.keys():
+		for key in list(dataset.keys()):
 			correctChoice = dataset[key]['options'][0]['sent']
 			answer = results[key]['solution']
 			if answer == correctChoice:
@@ -170,7 +170,7 @@ class GroupedPredictions:
 		up of examples that are predicted to be in a group.
 		"""
 		examplesShuffled = {}
-		for key in dataToSelectFrom.keys():
+		for key in list(dataToSelectFrom.keys()):
 			examples = dataToSelectFrom[key]
 			examples = [example['sent'] for example in examples]
 			examples = deepcopy(examples)
@@ -203,7 +203,7 @@ class GroupedPredictions:
 		up of examples that are predicted to be in a group.
 		"""
 		results = {}
-		for key in dataToSelectFrom.keys():
+		for key in list(dataToSelectFrom.keys()):
 			examples = dataToSelectFrom[key]
 			examples = deepcopy(examples)
 			shuffle(examples)
@@ -242,7 +242,7 @@ class GroupedPredictions:
 		up of examples that are predicted to be in a group.
 		"""
 		results = {}
-		for key in dataToSelectFrom.keys():
+		for key in list(dataToSelectFrom.keys()):
 			examples = dataToSelectFrom[key]
 			examples = deepcopy(examples)
 			shuffle(examples)
@@ -404,7 +404,7 @@ class GroupedPredictions:
 		The accuracy as a float.
 		"""
 		match = 0
-		for key in dataSet.keys():
+		for key in list(dataSet.keys()):
 			predictedSenseGroups = results[key]
 			# Examples are in order so split into group size to find groups 
 			orderedExamples = dataSet[key]

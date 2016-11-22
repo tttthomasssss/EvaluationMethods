@@ -1,4 +1,5 @@
-import cPickle as pickle
+import json
+
 
 def saveDataToFile(fileName, dataToSave):
 	"""
@@ -8,8 +9,9 @@ def saveDataToFile(fileName, dataToSave):
 	fileName: The name to save the file as.
 	dataToSave: The data to save.
 	"""
-	with open(fileName, 'wb') as f:
-		pickle.dump(dataToSave, f)
+	with open(fileName, 'w') as f:
+		json.dump(dataToSave, f, indent=4)
+
 
 def loadDataFromFile(fileName):
 	"""
@@ -21,7 +23,10 @@ def loadDataFromFile(fileName):
 	Returns:
 	The data at the file name provided.
 	"""
-	return pickle.load(open(fileName, 'rb'))		
+	with open(fileName, 'r') as in_file:
+		data = json.load(in_file)
+	return data
+
 
 def saveFullDatasetToFileAsText(fileName, dataDict, includeMeta=True):		
 	""" 
@@ -36,7 +41,7 @@ def saveFullDatasetToFileAsText(fileName, dataDict, includeMeta=True):
 	includeMeta: Boolean indicating if the sense metadata should also be saved.
 	"""
 	with open(fileName, 'w') as saveFile:
-		for key in dataDict.keys():
+		for key in list(dataDict.keys()):
 			saveFile.write('<word>\n')
 			saveFile.write(key)
 			saveFile.write('\n\n')
@@ -71,6 +76,7 @@ def saveFullDatasetToFileAsText(fileName, dataDict, includeMeta=True):
 					saveFile.write(example.encode('utf-8'))
 					saveFile.write('\n')
 				saveFile.write('\n')	
+
 
 def loadDataFromTextFile(fileName, includeMeta=True):
 	""" 
@@ -132,6 +138,7 @@ def loadDataFromTextFile(fileName, includeMeta=True):
 	loadFile.close()			
 	return dataToReturn
 
+
 def saveGroupedData(fileName, finalData):
 	"""
 	Saves data ready for grouped evaluation in a text format.
@@ -142,7 +149,7 @@ def saveGroupedData(fileName, finalData):
 
 	"""
 	with open(fileName, 'w') as f:
-		for key in finalData.keys():
+		for key in list(finalData.keys()):
 			f.write('<word>\n')
 			f.write(key)
 			f.write('\n\n')
@@ -150,6 +157,7 @@ def saveGroupedData(fileName, finalData):
 			for example in finalData[key]:
 				f.write(example['sent'].encode('utf-8')+'\n')
 			f.write('\n')
+
 
 def loadGroupedData(fileName):
 	"""
@@ -179,6 +187,7 @@ def loadGroupedData(fileName):
 			line = f.readline()		
 	return loadedData
 
+
 def saveOneFromManyData(fileName, finalData):
 	"""
 	Saves data ready for select one option from many evaluation in a text 
@@ -192,7 +201,7 @@ def saveOneFromManyData(fileName, finalData):
 	"""
 
 	with open(fileName, 'w') as f:
-		for key in finalData.keys():
+		for key in list(finalData.keys()):
 			f.write('<word>\n')
 			f.write(key + '\n\n')
 			f.write('<example>\n')
@@ -202,6 +211,7 @@ def saveOneFromManyData(fileName, finalData):
 			for option in values['options']:
 				f.write(option['sent'].encode('utf-8')+'\n')
 			f.write('\n')
+
 
 def loadOneFromManyData(fileName):
 	"""

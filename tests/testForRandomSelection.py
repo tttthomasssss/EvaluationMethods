@@ -28,8 +28,8 @@ def test_sense_selection_is_random_not_dominant():
 			count += 1
 		totalSelected += selectedCount/float(count)
 		totalBaseProb += baseProbability/count
-	print('Number of times dominant sense selected: {}'.format(totalSelected/100))
-	print('Probability of dominant sense being selected: {}'.format(totalBaseProb/100))	
+	print(('Number of times dominant sense selected: {}'.format(totalSelected/100)))
+	print(('Probability of dominant sense being selected: {}'.format(totalBaseProb/100)))	
 					 
 
 test_sense_selection_is_random_not_dominant()		

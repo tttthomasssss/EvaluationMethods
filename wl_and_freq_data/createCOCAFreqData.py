@@ -1,4 +1,4 @@
-import cPickle as pickle
+import pickle as pickle
 
 def convertPoS(posToConvert):
 	if posToConvert == 'n':

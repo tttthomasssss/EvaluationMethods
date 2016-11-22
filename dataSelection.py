@@ -23,7 +23,7 @@ def selectPoS(dataToAudit, PoS):
 	returned dictionary.  
 	"""
 	correctPos = {}
-	for key in dataToAudit.keys():
+	for key in list(dataToAudit.keys()):
 		sensesToKeep = []
 		for sense in dataToAudit[key]:
 			if sense['pos'] == PoS:

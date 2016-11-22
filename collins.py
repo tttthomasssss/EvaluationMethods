@@ -1,7 +1,7 @@
 from nltk.corpus import wordnet as wn 
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 import xml.etree.ElementTree as ET
-import cPickle as pickle
+import pickle as pickle
 import requests
 import json
 import re
@@ -47,7 +47,7 @@ class CollinsAPIAccess:
 					tempDict = response.json()
 					entries.append(self.extractCollinsSamples(tempDict, word))
 				else:	
-					print('Status code: {}'.format(response.status_code))
+					print(('Status code: {}'.format(response.status_code)))
 			if len(entries) > 0:
 				return entries
 		return None

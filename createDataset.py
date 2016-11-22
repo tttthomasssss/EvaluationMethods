@@ -25,8 +25,8 @@ def main(argv):
 	elif dictionary == 'semcor':
 		reader = SemcorWordExtraction()
 	else:
-		print('The dictionary argument given did not match the valid options ' 
-			+ 'of \'oxford\'. \'collins\' or \'semcor\'')
+		print(('The dictionary argument given did not match the valid options ' 
+			+ 'of \'oxford\'. \'collins\' or \'semcor\''))
 		exit()	
 
 	dataset = {}

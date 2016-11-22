@@ -2,7 +2,7 @@ from nltk.corpus import semcor
 from nltk.corpus.reader.wordnet import Lemma
 from collections import defaultdict
 from nltk.corpus import wordnet as wn
-import cPickle as pickle
+import pickle as pickle
 
 def convertPoS(posToConvert):
 		if 'NN' in posToConvert:
@@ -38,5 +38,5 @@ with open('semcorWordFreqCount', 'wb') as f:
 with open('semcorWordSenseCount', 'wb') as f:
 	pickle.dump(wordSynsetCount, f)
 
-print(len(wordCount))
-print(len(wordSynsetCount))
+print((len(wordCount)))
+print((len(wordSynsetCount)))

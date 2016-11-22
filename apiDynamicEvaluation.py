@@ -51,7 +51,7 @@ def main(argv):
 				accuracy = ofmPredictor.calculateAccuracy(selections, ofmData)
 				results.append(accuracy)
 	if len(results) > 0:		
-		print('Accuracy: {}'.format(mean(results)))		
+		print(('Accuracy: {}'.format(mean(results))))		
 
 if __name__ == '__main__':
 	main(argv[1:])

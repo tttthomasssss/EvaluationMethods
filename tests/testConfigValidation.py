@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 import unittest
 import configValidation as cv
-from ConfigParser import SafeConfigParser
+from configparser import SafeConfigParser
 
 class TestConfigValidation(unittest.TestCase): 
 
